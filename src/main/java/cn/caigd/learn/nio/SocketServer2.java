@@ -2,7 +2,6 @@ package cn.caigd.learn.nio;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.BasicConfigurator;
 
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -16,9 +15,6 @@ import java.util.concurrent.ConcurrentMap;
 
 public class SocketServer2 {
 
-    static {
-        BasicConfigurator.configure();
-    }
 
     /**
      * 日志

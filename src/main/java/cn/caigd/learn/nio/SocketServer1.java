@@ -14,13 +14,11 @@ import java.util.Iterator;
  
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.BasicConfigurator;
+
  
 public class SocketServer1 {
  
-    static {
-        BasicConfigurator.configure();
-    }
+
  
     /**
      * 日志
