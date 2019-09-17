@@ -12,7 +12,10 @@ import java.sql.Statement;
  * @author sqlitetutorial.net
  */
 public class TransactionApp {
- 
+
+      public TransactionApp(){
+         // conn = this.connect();
+      }
     /**
      * Connect to the test.db database
      *
@@ -20,6 +23,7 @@ public class TransactionApp {
      */
     private Connection connect() {
         // SQLite connection string
+
         String url = "jdbc:sqlite:D:\\sqlite\\data\\test.db";
         Connection conn = null;
         try {
@@ -37,7 +41,7 @@ public class TransactionApp {
      * @param warehouseId
      * @param qty
      */
-    public void addInventory(String material, int warehouseId, double qty) {
+    public synchronized void addInventory(String material, int warehouseId, double qty) {
         // SQL for creating a new material
         String sqlMaterial = "INSERT INTO materials(description) VALUES(?)";
         
@@ -46,9 +50,8 @@ public class TransactionApp {
                 + "VALUES(?,?,?)";
  
         ResultSet rs = null;
-        Connection conn = null;
         PreparedStatement pstmt1 = null, pstmt2 = null;
-        
+        Connection conn =null;
         try {
             // connect to the database
             conn = this.connect();
